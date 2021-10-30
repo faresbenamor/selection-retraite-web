@@ -1,4 +1,4 @@
-package com.selectionretraite.api.entities;
+package com.selectionretraite.api;
 
 import javax.persistence.*;
 import java.util.List;

@@ -1,0 +1,20 @@
+<nb-layout [withScroll]="false"  >
+
+  <nb-layout-header style="height: 50px!important;"  subheader fixed>
+    <a href="#" (click)="toggle()"><nb-icon icon="menu" ></nb-icon>
+    </a>
+  </nb-layout-header>
+
+  <nb-sidebar>
+    <nb-menu [items]="items">
+    </nb-menu>
+  </nb-sidebar>
+
+  <nb-layout-column  class="colored-column-basic" style="padding: 0!important;">
+
+
+    <router-outlet></router-outlet>
+
+  </nb-layout-column>
+
+</nb-layout>

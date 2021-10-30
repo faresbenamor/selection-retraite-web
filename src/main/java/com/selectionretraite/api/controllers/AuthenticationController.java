@@ -2,8 +2,8 @@ package com.selectionretraite.api.controller;
 
 import com.selectionretraite.api.configurations.TokenProvider;
 import com.selectionretraite.api.entities.User;
-import com.selectionretraite.api.entities.utils.LoginUser;
-import com.selectionretraite.api.entities.utils.OAuthToken;
+import com.selectionretraite.api.utils.LoginUser;
+import com.selectionretraite.api.utils.OAuthToken;
 import com.selectionretraite.api.exceptions.SavingIdException;
 import com.selectionretraite.api.services.IUserService;
 import com.selectionretraite.api.services.implementation.UserService;
