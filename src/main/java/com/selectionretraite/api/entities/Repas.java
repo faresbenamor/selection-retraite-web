@@ -18,6 +18,16 @@ public class Repas {
 
     private String dessert;
 
+    @ManyToOne
+    private Day day;
+
+    public Day getDay() {
+        return day;
+    }
+
+    public void setDay(Day day) {
+        this.day = day;
+    }
 
     public Long getId() {
         return id;

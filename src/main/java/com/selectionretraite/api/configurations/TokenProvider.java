@@ -15,7 +15,7 @@ import java.util.Date;
 import java.util.function.Function;
 import java.util.stream.Collectors;
 
-import static com.selectionretraite.api.entities.utils.Constants.*;
+import static com.selectionretraite.api.utils.Constants.*;
 
 
 @Component

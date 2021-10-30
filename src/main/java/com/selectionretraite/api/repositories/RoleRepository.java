@@ -1,4 +1,4 @@
-package com.selectionretraite.api.repository;
+package com.selectionretraite.api.repositories;
 
 import com.selectionretraite.api.entities.Role;
 import org.springframework.data.jpa.repository.JpaRepository;

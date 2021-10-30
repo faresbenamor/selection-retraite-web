@@ -13,7 +13,7 @@ public class Day {
 
     private LocalDate date;
 
-    @OneToMany
+    @OneToMany(mappedBy = "day")
     private List<Repas> repas;
 
     @ManyToOne

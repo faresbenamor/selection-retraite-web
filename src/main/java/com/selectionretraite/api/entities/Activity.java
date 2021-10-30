@@ -3,6 +3,7 @@ package com.selectionretraite.api.entities;
 import javax.persistence.*;
 import java.time.LocalDate;
 
+
 @Entity
 public class Activity {
 

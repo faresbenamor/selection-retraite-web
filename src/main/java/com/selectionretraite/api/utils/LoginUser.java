@@ -1,4 +1,4 @@
-package com.selectionretraite.api.entities.utils;
+package com.selectionretraite.api.utils;
 
 public class LoginUser {
 private  String password;

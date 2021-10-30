@@ -1,4 +1,4 @@
-package com.selectionretraite.api.controller;
+package com.selectionretraite.api.controllers;
 
 import com.selectionretraite.api.configurations.TokenProvider;
 import com.selectionretraite.api.entities.User;

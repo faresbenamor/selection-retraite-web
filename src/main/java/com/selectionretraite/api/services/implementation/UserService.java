@@ -1,14 +1,13 @@
 package com.selectionretraite.api.services.implementation;
 
 import com.selectionretraite.api.entities.User;
-import com.selectionretraite.api.entities.utils.MyUserDetails;
-import com.selectionretraite.api.repository.UserRepository;
+import com.selectionretraite.api.utils.MyUserDetails;
+import com.selectionretraite.api.repositories.UserRepository;
 import com.selectionretraite.api.services.IUserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 

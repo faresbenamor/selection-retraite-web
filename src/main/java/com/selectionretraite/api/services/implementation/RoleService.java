@@ -1,7 +1,7 @@
 package com.selectionretraite.api.services.implementation;
 
 import com.selectionretraite.api.entities.Role;
-import com.selectionretraite.api.repository.RoleRepository;
+import com.selectionretraite.api.repositories.RoleRepository;
 import com.selectionretraite.api.services.IRoleService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

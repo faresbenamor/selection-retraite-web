@@ -2,6 +2,7 @@ package com.selectionretraite.api.entities;
 
 import javax.persistence.*;
 import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 public class Album {
@@ -13,7 +14,7 @@ public class Album {
     private String titre;
 
     @ElementCollection
-    private ArrayList<String> image ;
+    private List<String> image ;
 
     @ManyToOne
     private Residence residence;
@@ -35,11 +36,11 @@ public class Album {
         this.titre = titre;
     }
 
-    public ArrayList<String> getImage() {
+    public List<String> getImage() {
         return image;
     }
 
-    public void setImage(ArrayList<String> image) {
+    public void setImage(List<String> image) {
         this.image = image;
     }
 

@@ -1,4 +1,4 @@
-package com.selectionretraite.api.entities.utils;
+package com.selectionretraite.api.utils;
 
 public class Constants {
     public static final long ACCESS_TOKEN_VALIDITY_SECONDS =12*60*60;

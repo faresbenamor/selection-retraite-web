@@ -19,22 +19,22 @@ public class Residence {
 
     private String email;
 
-    @OneToMany
+    @OneToMany(mappedBy = "residence")
     private List<Activity> activities;
 
-    @OneToMany
+    @OneToMany(mappedBy = "residence")
     private List<News> news;
 
-    @OneToMany
+    @OneToMany(mappedBy = "residence")
     private List<Alertes> alertes;
 
-    @OneToMany
+    @OneToMany(mappedBy = "residence")
     private List<Album> albums;
 
-    @OneToMany
+    @OneToMany(mappedBy = "residence")
     private List<Day> days;
 
-    @OneToOne
+    @OneToOne(mappedBy = "residence")
     private User user;
 
     public List<Activity> getActivities() {

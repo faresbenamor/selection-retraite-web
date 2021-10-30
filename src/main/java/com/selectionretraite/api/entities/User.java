@@ -1,7 +1,6 @@
-package com.selectionretraite.api;
+package com.selectionretraite.api.entities;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import com.selectionretraite.api.entities.Residence;
 
 import javax.persistence.*;
 import java.util.List;
