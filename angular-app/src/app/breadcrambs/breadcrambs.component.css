@@ -1,0 +1,16 @@
+.breadcrumb > li + li:before {
+  color: #ccc!important;
+  content: "• " !important;
+  padding: 0 5px!important;
+}
+
+.icono{
+  font-size: 160px;
+  height: 200px;
+  width: 250px;
+  top: 50px;
+  color: white;
+  opacity: .2;
+  position: absolute;
+  right: 0;
+}

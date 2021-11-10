@@ -6,6 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./residence.component.css']
 })
 export class ResidenceComponent implements OnInit {
+  stocks= ['test','test','test','test','test','test','test','test','test','test','test','test','test','test','test','test',] ;
 
   constructor() { }
 

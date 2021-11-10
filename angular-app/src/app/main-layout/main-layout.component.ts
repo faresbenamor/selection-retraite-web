@@ -8,10 +8,15 @@ import {ajaxGetJSON} from 'rxjs/internal-compatibility';
   styleUrls: ['./main-layout.component.css']
 })
 export class MainLayoutComponent implements OnInit {
-  items: NbMenuItem[] = [];
+  items: NbMenuItem[] = [{
+    title: 'Residences',
+    icon: 'home-outline',
+    link: 'residence'
+  }];
 
   constructor(private sidebarService: NbSidebarService) {
   }
+
 
   toggle(): boolean {
     this.sidebarService.toggle(true);
@@ -19,7 +24,7 @@ export class MainLayoutComponent implements OnInit {
   }
   ngOnInit(): void {
     // @ts-ignore
-    ajaxGetJSON('assets/menu.json').subscribe(r => this.items = r);
+    //ajaxGetJSON('assets/menu.json').subscribe(r => this.items = r);
   }
 
 }

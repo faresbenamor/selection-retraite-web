@@ -11,6 +11,7 @@ import java.util.Optional;
 
 @RestController
 @RequestMapping("api/repass")
+@CrossOrigin("*")
 public class RepasController {
 
     final IRepasService repasService;

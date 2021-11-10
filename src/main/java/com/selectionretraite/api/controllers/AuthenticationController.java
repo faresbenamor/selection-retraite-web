@@ -21,6 +21,7 @@ import java.util.Optional;
 
 @RestController
 @RequestMapping( "api")
+@CrossOrigin("*")
 public class AuthenticationController {
 
 
@@ -46,48 +47,5 @@ public class AuthenticationController {
         return ResponseEntity.ok(new OAuthToken(token));
     }
 
-    @RestController
-    @RequestMapping("api/users")
-    public static class UserController {
-        final IUserService userService;
 
-
-        public UserController(IUserService userService) {
-            this.userService = userService;
-        }
-
-        @GetMapping
-        public ResponseEntity<?> findAll(){
-            return ResponseEntity.ok(userService.findAll());
-        }
-
-        @PostMapping
-        public ResponseEntity<?> save(@RequestBody User user){
-            if(user.getId() == null){
-                Optional<User> user1 = Optional.of(userService.save(user));
-                return ResponseEntity.created(null).body(user1);
-            } else {
-                throw new SavingIdException(HttpStatus.BAD_REQUEST, "entity id must be null");
-            }
-
-        }
-
-        @PutMapping
-        public ResponseEntity<?> update(@RequestBody User user){
-            if(user.getId() != null){
-                User user1 = userService.save(user);
-                return ResponseEntity.accepted().body(user1);
-            } else {
-                throw new SavingIdException(HttpStatus.BAD_REQUEST, "entity id cannot be null");
-            }
-        }
-
-        @DeleteMapping("{id}")
-        public ResponseEntity<?> delete(@PathVariable("id") Long id){
-            userService.deleteById(id);
-            return ResponseEntity.noContent().build();
-        }
-
-
-    }
 }

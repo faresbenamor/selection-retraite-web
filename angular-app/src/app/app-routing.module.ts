@@ -2,8 +2,28 @@ import { NgModule } from '@angular/core';
 import {RouterModule, Routes} from '@angular/router';
 import {MainLayoutComponent} from './main-layout/main-layout.component';
 import {MainLayoutRoutingModule} from './main-layout/main-layout-routing.module';
+import {
+  NbAuthComponent,
+  NbLoginComponent,
+  NbRegisterComponent,
+  NbLogoutComponent,
+  NbRequestPasswordComponent,
+  NbResetPasswordComponent, NbAuthBlockComponent,
+} from '@nebular/auth';
+import {LoginComponent} from "./login/login.component";
+const routes: Routes = [
 
-const routes: Routes = [{ path: '', component: MainLayoutComponent, children: MainLayoutRoutingModule.routes }, { path: 'news', loadChildren: () => import('./news/news.module').then(m => m.NewsModule) }, { path: 'day', loadChildren: () => import('./day/day.module').then(m => m.DayModule) }, { path: 'alertes', loadChildren: () => import('./alertes/alertes.module').then(m => m.AlertesModule) }, { path: 'activity', loadChildren: () => import('./activity/activity.module').then(m => m.ActivityModule) }, { path: 'residence', loadChildren: () => import('./residence/residence.module').then(m => m.ResidenceModule) }, ];
+  {
+  path: '',
+  component: NbAuthComponent,
+  children: [
+    {
+      path: '',
+      component: LoginComponent
+    }
+  ]
+},{ path: 'main', component: MainLayoutComponent, children: MainLayoutRoutingModule.routes },
+  ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

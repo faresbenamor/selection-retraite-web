@@ -11,6 +11,7 @@ import java.util.Optional;
 
 @RestController
 @RequestMapping("api/activitys")
+@CrossOrigin("*")
 public class ActivityController {
 
     final IActivityService activityService;

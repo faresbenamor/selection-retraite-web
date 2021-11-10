@@ -11,6 +11,7 @@ import java.util.Optional;
 
 @RestController
 @RequestMapping("api/newss")
+@CrossOrigin("*")
 public class NewsController {
 
     final INewsService newsService;

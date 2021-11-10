@@ -11,6 +11,7 @@ import java.util.Optional;
 
 @RestController
 @RequestMapping("api/alertess")
+@CrossOrigin("*")
 public class AlertesController {
 
     final IAlertesService alertesService;

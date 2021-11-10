@@ -1,4 +1,4 @@
-package tn.esprit.bookstore.controller;
+package com.selectionretraite.api.controllers;
 
 
 import com.selectionretraite.api.entities.User;
@@ -13,6 +13,7 @@ import java.util.Optional;
 
 @RestController
 @RequestMapping("api/users")
+@CrossOrigin("*")
 public class UserController {
     final IUserService userService;
 

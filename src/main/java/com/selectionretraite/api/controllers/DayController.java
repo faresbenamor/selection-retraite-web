@@ -11,6 +11,7 @@ import java.util.Optional;
 
 @RestController
 @RequestMapping("api/days")
+@CrossOrigin("*")
 public class DayController {
 
     final IDayService dayService;
