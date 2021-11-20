@@ -16,16 +16,23 @@ export class ResidenceService {
 	findAll(  ): Observable<IResidence[]>{
     return this.http.get<IResidence[]>(this.url + this.endpoint);
   }
-	findById( id ): Observable<IResidence>{
+	findById( id: any ): Observable<IResidence>{
     return this.http.get<IResidence>(this.url + this.endpoint + '/' + id);
   }
-	save( residence ): Observable<IResidence>{
-    return this.http.post<IResidence>(this.url + this.endpoint, residence);
+
+    save(residence: IResidence, fileU: File ): Observable<IResidence>{
+    const fd = new FormData();
+      fd.append('nom',residence.nom + '');
+      fd.append('region', residence.region + '');
+      fd.append('email', residence.email + '');
+      fd.append('file', fileU);
+
+    return this.http.post<IResidence>(this.url + this.endpoint, fd);
   }
-	update( residence ): Observable<IResidence>{
+	update( residence: IResidence ): Observable<IResidence>{
     return this.http.put<IResidence>(this.url + this.endpoint, residence);
   }
-	delete( id ): Observable<any>{
+	delete( id: any ): Observable<any>{
     return this.http.delete<any>(this.url + this.endpoint + '/' + id);
   }
 }

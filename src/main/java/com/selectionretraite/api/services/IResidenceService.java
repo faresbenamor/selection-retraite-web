@@ -11,6 +11,8 @@ public interface IResidenceService {
     public Residence save(Residence residence);
     public Residence findById(Long id);
     public List<Residence> findAll();
+    public List<Residence> findResidencesByRegion(String region);
+    public List<Residence> getLogoAndNameByRegion(String region);
     public void deleteById(Long id);
     public Page<Residence> findAll(Pageable pageable);
 }

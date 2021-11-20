@@ -24,12 +24,13 @@ import {MatMenuModule} from '@angular/material/menu';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatTabsModule} from '@angular/material/tabs';
 import {MatOptionModule} from '@angular/material/core';
-import {FormsModule} from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatDialogModule} from '@angular/material/dialog';
 import {MatTableModule} from '@angular/material/table';
 import {MatProgressBarModule} from '@angular/material/progress-bar';
 import {MatSelectModule} from '@angular/material/select';
+import {SweetAlert2Module} from "@sweetalert2/ngx-sweetalert2";
 
 
 
@@ -65,7 +66,9 @@ import {MatSelectModule} from '@angular/material/select';
       MatInputModule,
       MatTableModule,
       MatProgressBarModule,
-      MatSortModule
+      MatSortModule,
+      ReactiveFormsModule,
+      SweetAlert2Module
 
     ],
     exports: [
@@ -98,7 +101,9 @@ import {MatSelectModule} from '@angular/material/select';
       MatInputModule,
       MatTableModule,
       MatProgressBarModule,
-      MatSortModule
+      MatSortModule,
+      ReactiveFormsModule,
+      SweetAlert2Module
     ]
 
 })

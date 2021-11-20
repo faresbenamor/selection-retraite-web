@@ -1,30 +1,47 @@
-<mat-card style="width: 90%; height: 70vh; margin-top: -60px; margin-left: 5%">
-  <mat-card-header style="display: flex; justify-content: space-between">
-    <mat-card-title style="margin-bottom: 24px">
-      Residences
-    </mat-card-title>
-    <button mat-fab style="margin-top: -45px"><mat-icon>add</mat-icon> </button>
-  </mat-card-header>
+<nb-layout>
+<nb-layout-column style="padding: 0!important;">
+  <mat-card style="width: 90%; height: 80vh; margin-top: -67px; margin-left: 5%">
+    <mat-card-header style="display: flex; justify-content: space-between">
+      <mat-card-title >
+        Residences
+      </mat-card-title>
 
-  <mat-divider></mat-divider>
-
-  <mat-card-content style="display: flex; flex-wrap: wrap; overflow-y: auto; max-height: 60vh" class="style-1">
-    <div class="col-md-6 col-sm-12 col-lg-4 col-12 p-2"   *ngFor="let stock of stocks" >
-      <mat-card>
-        <mat-card-header style="width: 100%; display: flex; justify-content: space-between">
-          <mat-card-title style="text-align: center; font-size: 16px!important;">{{stock}}</mat-card-title>
-
-        </mat-card-header>
+      <mat-form-field appearance="standard" style="margin-top: -25px">
+        <mat-label>Rechercher</mat-label>
+        <input matInput placeholder="Recherche.." [(ngModel)]="searchValue" (keyup)="filter()">
+        <mat-icon matSuffix>search</mat-icon>
+      </mat-form-field>
 
 
+      <button mat-fab style="margin-top: -45px" color="warn" (click)="openAddDialog()"><mat-icon>add</mat-icon> </button>
+    </mat-card-header>
 
+    <mat-divider></mat-divider>
 
-        <mat-card-actions align="end" style=" display: flex; justify-content: flex-end">
+    <mat-card-content style="display: flex; flex-wrap: wrap; overflow-y: auto; max-height: 70vh" class="style-1">
 
-          <button mat-button style="padding-right: 9px" color="primary" [routerLink]="[ stock ]"> Afficher  <mat-icon>arrow_forward</mat-icon></button>
-        </mat-card-actions>
-      </mat-card>
-    </div>
+      <div class="col-md-6 col-sm-12 col-lg-4 col-12 p-2" *ngFor="let residence of residences" >
 
-  </mat-card-content>
-</mat-card>
+        <mat-card class="example-card">
+          <mat-card-header>
+            <mat-card-title> {{ residence.nom }} </mat-card-title>
+            <mat-card-subtitle> {{ residence.region }} </mat-card-subtitle>
+          </mat-card-header>
+          <img mat-card-image [src]="residence.logo" height="250" width="250">
+          <mat-card-actions>
+            <button mat-raised-button style="background-color: #002F5F; color: white" (click)="openEditDialog(residence)">Modifier</button>
+            <button mat-raised-button color="warn"
+                    [swal]="{ title: 'Supprimer',  showCancelButton: true, cancelButtonText: 'Annuler', icon: 'question', confirmButtonText: 'Oui' , text: 'Voulez vous vraiment supprimer '+residence.nom+' ?', confirmButtonColor: '#f44336'}"
+                    (confirm)="deleteResidence(residence.id)"
+            >Supprimer</button>
+          </mat-card-actions>
+        </mat-card>
+
+      </div>
+
+    </mat-card-content>
+  </mat-card>
+
+</nb-layout-column>
+
+</nb-layout>

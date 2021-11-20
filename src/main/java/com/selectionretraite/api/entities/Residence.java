@@ -1,5 +1,9 @@
 package com.selectionretraite.api.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartFile;
+
 import javax.persistence.*;
 import java.util.List;
 
@@ -18,6 +22,17 @@ public class Residence {
     private String region;
 
     private String email;
+
+    @Transient
+    private MultipartFile file;
+
+    public MultipartFile getFile() {
+        return file;
+    }
+
+    public void setFile(MultipartFile file) {
+        this.file = file;
+    }
 
     @OneToMany(mappedBy = "residence")
     private List<Activity> activities;

@@ -8,7 +8,9 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
+import java.util.Comparator;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 public class ResidenceService implements IResidenceService {
@@ -27,7 +29,17 @@ public class ResidenceService implements IResidenceService {
 
     @Override
     public List<Residence> findAll() {
-        return residenceRepository.findAll();
+        return residenceRepository.findAll().stream().sorted(Comparator.comparing(Residence::getNom)).collect(Collectors.toList());
+    }
+
+    @Override
+    public List<Residence> findResidencesByRegion(String region) {
+        return residenceRepository.findResidencesByRegion(region).stream().sorted(Comparator.comparing(Residence::getNom)).collect(Collectors.toList());
+    }
+
+    @Override
+    public List<Residence> getLogoAndNameByRegion(String region) {
+        return residenceRepository.getLogoAndNameByRegion(region);
     }
 
     @Override

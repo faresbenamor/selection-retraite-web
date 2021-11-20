@@ -1,1 +1,36 @@
-<p>edit-residence works!</p>
+<h3 mat-dialog-title>Modifier une Residence</h3>
+<div mat-dialog-content>
+  <mat-form-field style="width: 100%">
+    <mat-label>Nom</mat-label>
+    <input matInput [(ngModel)]="residence.nom" required minlength="3">
+  </mat-form-field>
+
+  <mat-form-field style="width: 100%">
+    <mat-label>Region *</mat-label>
+    <mat-select [(ngModel)]="residence.region">
+      <mat-option *ngFor="let region of regions" [value]="region">
+        {{region}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <mat-form-field style="width: 100%" >
+    <mat-label>E-mail</mat-label>
+    <input matInput [(ngModel)]="residence.email" required minlength="3">
+  </mat-form-field>
+
+  <mat-label style="color: gray; padding: 20px 20px 20px 0">Logo: </mat-label>
+  <span style="padding: 15px">
+    <img height="100" [src]="residence.logo" style="cursor: pointer" matTooltip="importer image" (click)="file.click()">
+  </span>
+  <input type="file" #file style="display: none"  accept="image/*">
+
+</div>
+
+<div mat-dialog-actions align="end">
+  <button mat-raised-button style="background-color: #002F5F; color: white">Modifier</button>
+
+
+</div>
+
+

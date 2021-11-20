@@ -11,6 +11,7 @@ import { LoginComponent } from './login/login.component';
 import { NbPasswordAuthStrategy, NbAuthModule } from '@nebular/auth';
 import {NgbModule} from "@ng-bootstrap/ng-bootstrap";
 import { BreadcrambsComponent } from './breadcrambs/breadcrambs.component';
+import {SweetAlert2Module} from "@sweetalert2/ngx-sweetalert2";
 
 @NgModule({
     declarations: [
@@ -37,6 +38,7 @@ import { BreadcrambsComponent } from './breadcrambs/breadcrambs.component';
         }),
         NbInputModule,
         NbButtonModule,
+      SweetAlert2Module.forRoot()
     ],
     providers: [
         // ...NbThemeModule.forRoot({name: 'corporate'}).providers,

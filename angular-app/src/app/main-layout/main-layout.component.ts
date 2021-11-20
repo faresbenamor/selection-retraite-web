@@ -11,8 +11,15 @@ export class MainLayoutComponent implements OnInit {
   items: NbMenuItem[] = [{
     title: 'Residences',
     icon: 'home-outline',
-    link: 'residence'
-  }];
+    link: '/main/residence',
+    pathMatch: 'prefix',
+  },
+    {
+      title: 'Utilisateurs',
+      icon: 'person-outline',
+      link: '/main/users',
+      pathMatch: 'prefix'
+    }];
 
   constructor(private sidebarService: NbSidebarService) {
   }

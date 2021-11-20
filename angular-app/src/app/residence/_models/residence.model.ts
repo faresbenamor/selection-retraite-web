@@ -1,10 +1,11 @@
 import {Alertes} from '../../Alertes/_models/alertes.model';
 import {Activity} from '../../Activity/_models/activity.model';
 import {Day} from '../../Day/_models/day.model';
-import {News} from '../../News/_models/news.model';
-import {Album} from '../../Album/_models/album.model';
 
-export interface IResidence { 
+import {Album} from '../../Album/_models/album.model';
+import {News} from "../../news/_models/news.model";
+
+export interface IResidence {
 	id?: number;
 	nom?: string;
 	logo?: string;
@@ -16,7 +17,6 @@ export interface IResidence {
 	albums?: Album[];
 	days?: Day[];
 }
-
 export class Residence implements IResidence {
 	 constructor(
 		public id?: number,
