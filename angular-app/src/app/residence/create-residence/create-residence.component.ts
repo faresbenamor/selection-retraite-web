@@ -10,7 +10,7 @@ import {MatDialogRef} from "@angular/material/dialog";
 })
 export class CreateResidenceComponent implements OnInit {
 
-  residence: IResidence= new Residence();
+  residence: IResidence = new Residence();
   fileU?: File;
   filename =  '/assets/GSBackground.jpeg';
 
@@ -35,5 +35,9 @@ export class CreateResidenceComponent implements OnInit {
   add() {
     // @ts-ignore
     this.residenceService.save(this.residence, this.fileU).subscribe(this.ref.close());
+  }
+
+  showAlert() {
+    alert('Vérifiez les champs !');
   }
 }

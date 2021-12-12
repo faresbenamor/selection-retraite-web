@@ -22,6 +22,8 @@ export class ResidenceService {
 
     save(residence: IResidence, fileU: File ): Observable<IResidence>{
     const fd = new FormData();
+    // @ts-ignore
+      fd.append('id', residence.id);
       fd.append('nom',residence.nom + '');
       fd.append('region', residence.region + '');
       fd.append('email', residence.email + '');

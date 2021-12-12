@@ -2,7 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {CreateResidenceComponent} from "./create-residence/create-residence.component";
 import {MatDialog} from "@angular/material/dialog";
 import {ResidenceService} from "./_services/residence.service";
-import {Residence} from "./_models/residence.model";
+import {IResidence, Residence} from "./_models/residence.model";
 import {EditResidenceComponent} from "./edit-residence/edit-residence.component";
 
 @Component({
@@ -13,9 +13,17 @@ import {EditResidenceComponent} from "./edit-residence/edit-residence.component"
 
 export class ResidenceComponent implements OnInit {
 
+  regions = ["Toutes les régions","Abitibi-Temiscamingue","Bas-Saint-Laurent","Capitale-Nationale","Quebec","Chaudiere-Appalaches",
+    "Estrie","Gaspe","Lanaudiere","Laurentides","Laval","Mauricie","Monteregie","Montreal",
+    "Outaouais","Saguenay"];
+
   residences: Residence[] = [];
-  searchValue = '';
   residencesAll: Residence[]= [];
+  searchValue = '';
+  residence: IResidence= new Residence();
+  loaded = false;
+
+
 
   constructor(private dialog: MatDialog, private residenceService: ResidenceService) { }
 
@@ -34,6 +42,7 @@ export class ResidenceComponent implements OnInit {
 
   getAllResidences() {
     this.residenceService.findAll().subscribe(data => {
+      this.loaded = true;
       this.residences = data;
       this.residencesAll = data;
     })
@@ -59,6 +68,16 @@ export class ResidenceComponent implements OnInit {
   filter() {
     // @ts-ignore
     this.residences = this.residencesAll.filter(r => r.nom?.toLowerCase().indexOf(this.searchValue.toLowerCase()) > -1)
+  }
+
+  filterByRegion() {
+    if (this.residence.region == 'Toutes les régions') {
+      this.residences = this.residencesAll;
+    }
+    else {
+      // @ts-ignore
+      this.residences = this.residencesAll.filter(r => r.region?.indexOf(this.residence.region) > -1)
+    }
   }
 }
 

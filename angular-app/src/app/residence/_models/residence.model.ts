@@ -4,6 +4,7 @@ import {Day} from '../../Day/_models/day.model';
 
 import {Album} from '../../Album/_models/album.model';
 import {News} from "../../news/_models/news.model";
+import {User} from "../../user/_models/user.model";
 
 export interface IResidence {
 	id?: number;
@@ -16,6 +17,7 @@ export interface IResidence {
 	alertes?: Alertes[];
 	albums?: Album[];
 	days?: Day[];
+  user?: User;
 }
 export class Residence implements IResidence {
 	 constructor(
@@ -29,5 +31,6 @@ export class Residence implements IResidence {
 		public alertes?: Alertes[],
 		public albums?: Album[],
 		public days?: Day[],
+    public user?: User
 	) {}
 }

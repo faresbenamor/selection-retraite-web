@@ -23,6 +23,7 @@ public class User {
     private List<Role> roles;
 
     @OneToOne
+    @JsonIgnoreProperties("user")
     private Residence residence;
 
     public List<Role> getRoles() {

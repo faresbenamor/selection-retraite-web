@@ -17,6 +17,7 @@ public class News {
 
     private String description;
 
+
     @ManyToOne
     private Residence residence;
 

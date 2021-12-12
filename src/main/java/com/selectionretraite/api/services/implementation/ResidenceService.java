@@ -43,6 +43,11 @@ public class ResidenceService implements IResidenceService {
     }
 
     @Override
+    public List<String> getAllName() {
+        return residenceRepository.getAllName();
+    }
+
+    @Override
     public void deleteById(Long id) {
         residenceRepository.deleteById(id);
     }

@@ -10,15 +10,22 @@ import {MainLayoutComponent} from './main-layout/main-layout.component';
 import { LoginComponent } from './login/login.component';
 import { NbPasswordAuthStrategy, NbAuthModule } from '@nebular/auth';
 import {NgbModule} from "@ng-bootstrap/ng-bootstrap";
-import { BreadcrambsComponent } from './breadcrambs/breadcrambs.component';
 import {SweetAlert2Module} from "@sweetalert2/ngx-sweetalert2";
+import { AdminModulesComponent } from './admin-modules/admin-modules.component';
+import { UsersComponent } from './users/users.component';
+import { CreateUserComponent } from './users/create-user/create-user.component';
+import { EditUserComponent } from './users/edit-user/edit-user.component';
 
 @NgModule({
     declarations: [
         AppComponent,
         MainLayoutComponent,
         LoginComponent,
-        BreadcrambsComponent
+        AdminModulesComponent,
+        UsersComponent,
+        CreateUserComponent,
+        EditUserComponent,
+
     ],
     imports: [
         BrowserModule,
@@ -45,7 +52,7 @@ import {SweetAlert2Module} from "@sweetalert2/ngx-sweetalert2";
         NbWindowService
     ],
     exports: [
-        BreadcrambsComponent
+
     ],
     bootstrap: [AppComponent]
 })

@@ -7,6 +7,7 @@ import { CreateResidenceComponent } from './create-residence/create-residence.co
 import { EditResidenceComponent } from './edit-residence/edit-residence.component';
 import { DeleteResidenceComponent } from './delete-residence/delete-residence.component';
 import {SharedModule} from "../shared/shared.module";
+import { DetailResidenceComponent } from './detail-residence/detail-residence.component';
 
 
 @NgModule({
@@ -14,7 +15,8 @@ import {SharedModule} from "../shared/shared.module";
     ResidenceComponent,
     CreateResidenceComponent,
     EditResidenceComponent,
-    DeleteResidenceComponent
+    DeleteResidenceComponent,
+    DetailResidenceComponent
   ],
   imports: [
     CommonModule,

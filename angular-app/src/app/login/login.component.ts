@@ -26,10 +26,11 @@ export class LoginComponent implements OnInit {
       this.tokenStorage.saveToken(data.tokenName);
       this.tokenStorage.saveUsername(data.username);
       this.tokenStorage.saveAuthorities(data.authorities);
-      this.router.navigate(['/main']);
+      this.router.navigate(['/home']);
     },
     (error) => {
       this.errorMessage = 'Username or password incorrect !';
+      alert('Login ou mot de passe incorrect !')
     }
 
   );

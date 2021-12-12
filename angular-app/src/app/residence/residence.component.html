@@ -12,6 +12,16 @@
         <mat-icon matSuffix>search</mat-icon>
       </mat-form-field>
 
+      <mat-form-field style="width: 20%; margin-top: -15px">
+        <mat-label>Filtrer par région</mat-label>
+        <mat-select [(ngModel)]="residence.region" (selectionChange)="filterByRegion()">
+          <mat-option *ngFor="let region of regions" [value]="region">
+            {{region}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+
+
 
       <button mat-fab style="margin-top: -45px" color="warn" (click)="openAddDialog()"><mat-icon>add</mat-icon> </button>
     </mat-card-header>
@@ -19,10 +29,13 @@
     <mat-divider></mat-divider>
 
     <mat-card-content style="display: flex; flex-wrap: wrap; overflow-y: auto; max-height: 70vh" class="style-1">
-
+      <div *ngIf="residences.length == 0 && loaded" class="mx-auto my-auto"
+           style="height: 70vh; display: flex; flex-direction: column; justify-content: center">
+        <h3>Aucune résidence trouvée!</h3>
+      </div>
       <div class="col-md-6 col-sm-12 col-lg-4 col-12 p-2" *ngFor="let residence of residences" >
 
-        <mat-card class="example-card">
+        <mat-card class="example-card" [routerLink]="[residence.id]">
           <mat-card-header>
             <mat-card-title> {{ residence.nom }} </mat-card-title>
             <mat-card-subtitle> {{ residence.region }} </mat-card-subtitle>
@@ -31,7 +44,7 @@
           <mat-card-actions>
             <button mat-raised-button style="background-color: #002F5F; color: white" (click)="openEditDialog(residence)">Modifier</button>
             <button mat-raised-button color="warn"
-                    [swal]="{ title: 'Supprimer',  showCancelButton: true, cancelButtonText: 'Annuler', icon: 'question', confirmButtonText: 'Oui' , text: 'Voulez vous vraiment supprimer '+residence.nom+' ?', confirmButtonColor: '#f44336'}"
+                    [swal]="{ title: 'Êtes-vous sûr ?', showCancelButton: true, cancelButtonText: 'Annuler', icon: 'warning', confirmButtonText: 'Oui' , text: 'Voulez vous vraiment supprimer '+residence.nom+' ?', confirmButtonColor: '#f44336', iconColor: '#f44336'}"
                     (confirm)="deleteResidence(residence.id)"
             >Supprimer</button>
           </mat-card-actions>

@@ -1,6 +1,7 @@
 package com.selectionretraite.api.entities;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -50,6 +51,7 @@ public class Residence {
     private List<Day> days;
 
     @OneToOne(mappedBy = "residence")
+    @JsonIgnoreProperties("residence")
     private User user;
 
     public List<Activity> getActivities() {

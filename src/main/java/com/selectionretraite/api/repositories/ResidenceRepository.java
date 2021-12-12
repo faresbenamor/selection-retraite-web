@@ -11,8 +11,11 @@ import java.util.List;
 @Repository
 public interface ResidenceRepository extends JpaRepository<Residence, Long> {
 
-    public List<Residence> findResidencesByRegion(String region);
+     List<Residence> findResidencesByRegion(String region);
 
-    @Query("SELECT r.logo, r.nom FROM Residence r WHERE r.region = :region")
-    public List<Residence> getLogoAndNameByRegion(@Param("region") String region);
+     @Query("SELECT r.nom FROM Residence r")
+     List<String> getAllName();
+
+     @Query("SELECT r.logo, r.nom FROM Residence r WHERE r.region = :region")
+     List<Residence> getLogoAndNameByRegion(@Param("region") String region);
 }

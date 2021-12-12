@@ -21,14 +21,14 @@
 
   <mat-label style="color: gray; padding: 20px 20px 20px 0">Logo: </mat-label>
   <span style="padding: 15px">
-    <img height="100" [src]="residence.logo" style="cursor: pointer" matTooltip="importer image" (click)="file.click()">
+    <img height="100" [src]="residence.logo " style="cursor: pointer" matTooltip="importer image" (click)="file.click()">
   </span>
-  <input type="file" #file style="display: none"  accept="image/*">
+  <input type="file" #file style="display: none"  (change)="onFileChange($event.target)" accept="image/*">
 
 </div>
 
 <div mat-dialog-actions align="end">
-  <button mat-raised-button style="background-color: #002F5F; color: white">Modifier</button>
+  <button mat-raised-button style="background-color: #002F5F; color: white" (click)="editResidence()">Modifier</button>
 
 
 </div>

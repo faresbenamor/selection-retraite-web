@@ -8,11 +8,12 @@ import java.util.List;
 
 public interface IResidenceService {
 
-    public Residence save(Residence residence);
-    public Residence findById(Long id);
-    public List<Residence> findAll();
-    public List<Residence> findResidencesByRegion(String region);
-    public List<Residence> getLogoAndNameByRegion(String region);
-    public void deleteById(Long id);
-    public Page<Residence> findAll(Pageable pageable);
+     Residence save(Residence residence);
+     Residence findById(Long id);
+     List<Residence> findAll();
+     List<Residence> findResidencesByRegion(String region);
+     List<Residence> getLogoAndNameByRegion(String region);
+     List<String> getAllName();
+     void deleteById(Long id);
+     Page<Residence> findAll(Pageable pageable);
 }

@@ -9,17 +9,42 @@ import {ajaxGetJSON} from 'rxjs/internal-compatibility';
 })
 export class MainLayoutComponent implements OnInit {
   items: NbMenuItem[] = [{
-    title: 'Residences',
+    title: 'Dashboard',
     icon: 'home-outline',
     link: '/main/residence',
     pathMatch: 'prefix',
   },
     {
-      title: 'Utilisateurs',
+      title: 'Activités',
       icon: 'person-outline',
-      link: '/main/users',
+      link: '/main/activity',
       pathMatch: 'prefix'
-    }];
+    },
+    {
+      title: 'Nouvelles',
+      icon: 'person-outline',
+      link: '/main/news',
+      pathMatch: 'prefix'
+    },
+    {
+      title: 'Alertes',
+      icon: 'person-outline',
+      link: '/main/alertes',
+      pathMatch: 'prefix'
+    },
+    {
+      title: 'Menu',
+      icon: 'person-outline',
+      link: '/main/day',
+      pathMatch: 'prefix'
+    },
+    {
+      title: 'Photos',
+      icon: 'person-outline',
+      link: '/main/album',
+      pathMatch: 'prefix'
+    }
+  ];
 
   constructor(private sidebarService: NbSidebarService) {
   }

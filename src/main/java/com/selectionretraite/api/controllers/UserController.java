@@ -17,7 +17,6 @@ import java.util.Optional;
 public class UserController {
     final IUserService userService;
 
-
     public UserController(IUserService userService) {
         this.userService = userService;
     }

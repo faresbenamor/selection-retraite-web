@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import {HttpClient} from "@angular/common/http";
 import {Observable} from "rxjs";
-import {IUser, User} from "../_models/user.model";
+import {IRole, IUser, Role, User} from "../_models/user.model";
 import {environment} from "../../../environments/environment";
 
 
@@ -16,26 +16,30 @@ export class UserService {
 
   // afficheeeer
   getUsers(): Observable <IUser[]> {
-    return this.http.get<User[]>(this.url + '/api/users');
+    return this.http.get<User[]>(this.url + 'users');
+  }
+
+  getRoles(): Observable <IRole[]> {
+    return this.http.get<Role[]>(this.url + 'roles');
   }
 
  // ajouuut
   create(user: User): Observable <IUser[]> {
-    return this.http.post<User[]>(this.url + '/api/users', user);
+    return this.http.post<User[]>(this.url + 'users', user);
   }
 
  // modifieeer
   update(user: User): Observable <IUser[]> {
-    return this.http.put<User[]>(this.url + '/api/users', user);
+    return this.http.put<User[]>(this.url + 'users', user);
   }
 
  // supprimeeer
   delete(userId: number): Observable <IUser> {
-    return this.http.delete<User>(this.url + '/api/users/'+ userId);
+    return this.http.delete<User>(this.url + 'users/'+ userId);
   }
 
   login(user: IUser) : Observable <any> {
-    return this.http.post<User>(this.url + '/api/token', user);
+    return this.http.post<User>(this.url + 'token', user);
   }
 
 }

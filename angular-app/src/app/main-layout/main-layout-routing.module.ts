@@ -6,6 +6,7 @@ const routes: Routes = [
   { path: 'day', loadChildren: () => import('../day/day.module').then(m => m.DayModule) },
   { path: 'alertes', loadChildren: () => import('../alertes/alertes.module').then(m => m.AlertesModule) },
   { path: 'activity', loadChildren: () => import('../activity/activity.module').then(m => m.ActivityModule) },
+  { path: 'album', loadChildren: () => import('../album/album.module').then(m => m.AlbumModule) },
   { path: 'residence', loadChildren: () => import('../residence/residence.module').then(m => m.ResidenceModule) },
 ];
 

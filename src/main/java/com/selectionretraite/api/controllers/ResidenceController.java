@@ -8,7 +8,6 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
-import javax.websocket.server.PathParam;
 import java.util.List;
 import java.util.Optional;
 
@@ -31,8 +30,13 @@ public class ResidenceController {
     }
 
     @GetMapping("{id}")
-    public ResponseEntity<Residence> findById(@PathVariable Long id){
+    public ResponseEntity<Residence> findById(@PathVariable Long id) {
         return ResponseEntity.ok(residenceService.findById(id));
+    }
+
+    @GetMapping("nom")
+    public List<String> getAllName() {
+        return residenceService.getAllName();
     }
 
     @GetMapping("region/{region}")
