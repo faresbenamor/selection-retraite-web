@@ -5,17 +5,6 @@ import {CreateUserComponent} from "./create-user/create-user.component";
 import {UserService} from "../user/_services/user.service";
 import {User} from "../user/_models/user.model";
 
-export interface PeriodicElement {
-  name: string;
-  position: number;
-  weight: string;
-  symbol: string;
-  action: string;
-}
-
-const ELEMENT_DATA: PeriodicElement[] = [
-  {position: 1, name: 'Boreal@groupeselection.com', weight: "Admin", symbol: 'Boreal', action: 'ff'}
-];
 
 @Component({
   selector: 'app-users',
@@ -53,5 +42,11 @@ export class UsersComponent implements OnInit {
   applyFilter(event: Event) {
     const filterValue = (event.target as HTMLInputElement).value;
     this.dataSource.filter = filterValue.trim().toLowerCase();
+  }
+
+  deleteUser(id : any) {
+    this.userService.delete(id).subscribe(data => {
+      this.getAllUser();
+    })
   }
 }

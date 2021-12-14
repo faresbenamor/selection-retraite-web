@@ -33,14 +33,14 @@
            style="height: 70vh; display: flex; flex-direction: column; justify-content: center">
         <h3>Aucune résidence trouvée!</h3>
       </div>
-      <div class="col-md-6 col-sm-12 col-lg-4 col-12 p-2" *ngFor="let residence of residences" >
+      <div class="col-md-6 col-sm-12 col-lg-4 col-12 p-2" *ngFor="let residence of residences">
 
-        <mat-card class="example-card" [routerLink]="[residence.id]">
-          <mat-card-header>
+        <mat-card class="example-card">
+          <mat-card-header [routerLink]="[residence.id]">
             <mat-card-title> {{ residence.nom }} </mat-card-title>
             <mat-card-subtitle> {{ residence.region }} </mat-card-subtitle>
           </mat-card-header>
-          <img mat-card-image [src]="residence.logo" height="250" width="250">
+          <img mat-card-image [src]="residence.logo" height="250" width="250" [routerLink]="[residence.id]">
           <mat-card-actions>
             <button mat-raised-button style="background-color: #002F5F; color: white" (click)="openEditDialog(residence)">Modifier</button>
             <button mat-raised-button color="warn"
