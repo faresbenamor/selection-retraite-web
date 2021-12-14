@@ -23,6 +23,7 @@ export class EditResidenceComponent implements OnInit {
 
   ngOnInit(): void {
     this.residence = this.data;
+    this.residence.logo = this.serverUrl + this.residence.logo;
   }
 
   onFileChange(files: any) {
