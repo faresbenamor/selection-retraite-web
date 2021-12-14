@@ -27,6 +27,8 @@ export class CreateUserComponent implements OnInit {
   getAllResidences() {
     this.residenceService.findAll().subscribe(data => {
       this.residences = data.filter(r => r.user == null);
+    }, error => {
+      alert("nooo");
     })
   }
 

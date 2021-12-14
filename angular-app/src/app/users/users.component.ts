@@ -10,19 +10,11 @@ export interface PeriodicElement {
   position: number;
   weight: string;
   symbol: string;
+  action: string;
 }
 
 const ELEMENT_DATA: PeriodicElement[] = [
-  {position: 1, name: 'Boreal@groupeselection.com', weight: "Admin", symbol: 'Boreal'},
-  {position: 2, name: 'Beloeil@groupeselection.com', weight: "Admin", symbol: 'Beloeil'},
-  {position: 3, name: 'BleuHorizon@groupeselection.com', weight: "Admin", symbol: 'BleuHorizon'},
-  {position: 4, name: 'Cherbourg@groupeselection.com', weight: "Admin", symbol: 'Cherbourg'},
-  {position: 5, name: 'Vaudreuil@groupeselection.com', weight: "Admin", symbol: 'Vaudreuil'},
-  {position: 6, name: 'Laval@groupeselection.com', weight: "Admin", symbol: 'Laval'},
-  {position: 7, name: 'Lévis@groupeselection.com', weight: "Admin", symbol: 'Lévis'},
-  {position: 8, name: 'Marronniers@groupeselection.com', weight: "Admin", symbol: 'Marronniers'},
-  {position: 9, name: 'WestIsland@groupeselection.com', weight: "Admin", symbol: 'WestIsland'},
-  {position: 10, name: 'Vista@groupeselection.com', weight: "Admin", symbol: 'Vista'},
+  {position: 1, name: 'Boreal@groupeselection.com', weight: "Admin", symbol: 'Boreal', action: 'ff'}
 ];
 
 @Component({
@@ -33,8 +25,8 @@ const ELEMENT_DATA: PeriodicElement[] = [
 export class UsersComponent implements OnInit {
 
   users: User[] = []
-  displayedColumns: string[] = ['position', 'name', 'weight', 'symbol'];
-  dataSource = new MatTableDataSource(ELEMENT_DATA);
+  displayedColumns: string[] = ['position', 'name', 'weight', 'symbol', 'action'];
+  dataSource : MatTableDataSource<User> = new MatTableDataSource<User>();
 
   constructor(private dialog: MatDialog, private userService: UserService) { }
 
@@ -54,7 +46,7 @@ export class UsersComponent implements OnInit {
   getAllUser() {
     this.userService.getUsers().subscribe(data => {
       this.users = data
-       console.log(this.users);
+      this.dataSource = new MatTableDataSource(this.users);
     })
   }
 
