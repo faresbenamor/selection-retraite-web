@@ -63,7 +63,7 @@ export class ResidenceComponent implements OnInit {
       data: residence
     });
     dialogRef.afterClosed().subscribe(data => {
-
+      this.getAllResidences();
     });
   }
 
