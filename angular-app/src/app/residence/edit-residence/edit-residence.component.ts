@@ -2,6 +2,7 @@ import {Component, Inject, OnInit} from '@angular/core';
 import {MAT_DIALOG_DATA, MatDialogRef} from "@angular/material/dialog";
 import {IResidence, Residence} from "../_models/residence.model";
 import {ResidenceService} from "../_services/residence.service";
+import {environment} from "../../../environments/environment";
 
 @Component({
   selector: 'app-edit-residence',
@@ -15,7 +16,7 @@ export class EditResidenceComponent implements OnInit {
     "Outaouais","Saguenay"];
 
   residence: Residence = new Residence();
-
+  serverUrl = environment.url;
   fileU?: File;
   filename =  '/assets/GSBackground.jpeg';
   constructor(@Inject(MAT_DIALOG_DATA) private data: Residence, private residenceService: ResidenceService, private ref: MatDialogRef<EditResidenceComponent>) { }

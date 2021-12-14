@@ -21,7 +21,7 @@
 
   <mat-label style="color: gray; padding: 20px 20px 20px 0">Logo: </mat-label>
   <span style="padding: 15px">
-    <img height="100" [src]="residence.logo " style="cursor: pointer" matTooltip="importer image" (click)="file.click()">
+    <img height="100" [src]="serverUrl  +residence.logo " style="cursor: pointer" matTooltip="importer image" (click)="file.click()">
   </span>
   <input type="file" #file style="display: none"  (change)="onFileChange($event.target)" accept="image/*">
 

@@ -58,7 +58,7 @@ public class ResidenceController {
                 .path("/downloadFile/")
                 .path(fileName)
                 .toUriString();
-        residence.setLogo(fileDownloadUri);
+        residence.setLogo("/downloadFile/" + fileName);
         Optional<Residence> residence1 = Optional.of(residenceService.save(residence));
         Residence residence2 = residence1.get();
         residence2.setFile(null);

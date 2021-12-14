@@ -4,6 +4,7 @@ import {MatDialog} from "@angular/material/dialog";
 import {ResidenceService} from "./_services/residence.service";
 import {IResidence, Residence} from "./_models/residence.model";
 import {EditResidenceComponent} from "./edit-residence/edit-residence.component";
+import {environment} from "../../environments/environment";
 
 @Component({
   selector: 'app-residence',
@@ -16,6 +17,8 @@ export class ResidenceComponent implements OnInit {
   regions = ["Toutes les régions","Abitibi-Temiscamingue","Bas-Saint-Laurent","Capitale-Nationale","Quebec","Chaudiere-Appalaches",
     "Estrie","Gaspe","Lanaudiere","Laurentides","Laval","Mauricie","Monteregie","Montreal",
     "Outaouais","Saguenay"];
+
+  serverUrl = environment.url;
 
   residences: Residence[] = [];
   residencesAll: Residence[]= [];
