@@ -9,8 +9,8 @@ import { NbIconLibraries } from '@nebular/theme';
 export class AppComponent {
   title = 'angular-app';
 
-constructor(private iconLibraries: NbIconLibraries) {
-  this.iconLibraries.registerFontPack('font-awesome');
+  constructor(private iconLibraries: NbIconLibraries) {
+    this.iconLibraries.registerFontPack('font-awesome');
 
-}
+  }
 }
