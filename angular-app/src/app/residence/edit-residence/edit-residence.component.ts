@@ -1,6 +1,6 @@
 import {Component, Inject, OnInit} from '@angular/core';
 import {MAT_DIALOG_DATA, MatDialogRef} from "@angular/material/dialog";
-import {IResidence, Residence} from "../_models/residence.model";
+import {Residence} from "../_models/residence.model";
 import {ResidenceService} from "../_services/residence.service";
 import {environment} from "../../../environments/environment";
 
@@ -23,7 +23,6 @@ export class EditResidenceComponent implements OnInit {
 
   ngOnInit(): void {
     this.residence = this.data;
-    this.residence.logo = this.serverUrl + this.residence.logo;
   }
 
   onFileChange(files: any) {
@@ -43,7 +42,5 @@ export class EditResidenceComponent implements OnInit {
   editResidence() {
     // @ts-ignore
     this.residenceService.save(this.residence, this.fileU).subscribe(this.ref.close());
-
-
   }
 }

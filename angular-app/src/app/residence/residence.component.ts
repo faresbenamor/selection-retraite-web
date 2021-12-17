@@ -5,6 +5,7 @@ import {ResidenceService} from "./_services/residence.service";
 import {IResidence, Residence} from "./_models/residence.model";
 import {EditResidenceComponent} from "./edit-residence/edit-residence.component";
 import {environment} from "../../environments/environment";
+import {valueReferenceToExpression} from "@angular/compiler-cli/src/ngtsc/annotations/src/util";
 
 @Component({
   selector: 'app-residence',
@@ -46,8 +47,11 @@ export class ResidenceComponent implements OnInit {
   getAllResidences() {
     this.residenceService.findAll().subscribe(data => {
       this.loaded = true;
-      this.residences = data;
-      this.residencesAll = data;
+      this.residences = data.map(value => {
+        value.logo = this.serverUrl + value.logo;
+        return value;
+      });
+      this.residencesAll = this.residences;
     })
   }
 

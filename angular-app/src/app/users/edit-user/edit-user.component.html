@@ -1,1 +1,42 @@
-<p>edit-user works!</p>
+<h3 mat-dialog-title>Modifier un utilisateur</h3>
+<form (ngSubmit)= "edit()" name="form" #f="ngForm">
+  <div mat-dialog-content>
+    <mat-form-field style="width: 100%">
+      <mat-label>E-mail</mat-label>
+      <input matInput [(ngModel)]="user.username" name="username" required minlength="3">
+    </mat-form-field>
+
+    <mat-form-field style="width: 100%">
+      <mat-label>Mot de passe</mat-label>
+      <input matInput [(ngModel)]="user.password" name="password" required minlength="3">
+
+    </mat-form-field>
+
+    <mat-form-field style="width: 100%">
+      <mat-label>Role</mat-label>
+      <mat-select [(ngModel)]="rolee.id" name="role" required>
+        <mat-option *ngFor="let role of roles" [value]="role?.id" >
+          {{role.name}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field style="width: 100%">
+      <mat-label>Résidence</mat-label>
+      <mat-select [(ngModel)]="user.residence" name="residence" required>
+        <mat-option *ngFor="let res of residences" [value]="res">
+          {{res?.nom}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+
+  </div>
+
+  <div mat-dialog-actions align="end">
+    <button mat-raised-button color="warn">Ajouter</button>
+
+  </div>
+</form>
+
+
+

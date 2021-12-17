@@ -1,9 +1,11 @@
-<nb-layout>
-<nb-layout-column style="padding: 0!important;">
-
+<nb-layout [withScroll]="false">
   <nb-layout-header style="height: 60px!important;"  subheader fixed>
 
   </nb-layout-header>
+
+<nb-layout-column class="colored-column-basic" style="padding: 0!important;">
+
+
   <div style="background: #002F5F; width: 100%; height: 30vh; "></div>
 
   <mat-card style="width: 90%; height: 80vh; margin-top: -67px; margin-left: 5%">
@@ -42,11 +44,11 @@
       <div class="col-md-6 col-sm-12 col-lg-4 col-12 p-2" *ngFor="let residence of residences" >
 
         <mat-card class="example-card" style="z-index: 1!important;">
-          <mat-card-header  [routerLink]="[residence.id]">
+          <mat-card-header  [routerLink]="['/main/residence', residence.id]">
             <mat-card-title> {{ residence.nom }} </mat-card-title>
             <mat-card-subtitle> {{ residence.region }} </mat-card-subtitle>
           </mat-card-header>
-          <img  [routerLink]="[residence.id]" mat-card-image [src]="serverUrl+residence.logo" height="250" width="250">
+          <img  [routerLink]="['/main/residence', residence.id]" mat-card-image [src]="residence.logo" height="250" width="250">
           <mat-card-actions>
             <button mat-raised-button style="background-color: #002F5F; color: white; z-index: 9!important;" (click)="openEditDialog(residence)">Modifier</button>
             <button mat-raised-button color="warn"

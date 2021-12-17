@@ -4,6 +4,7 @@ import {MatTableDataSource} from "@angular/material/table";
 import {CreateUserComponent} from "./create-user/create-user.component";
 import {UserService} from "../user/_services/user.service";
 import {User} from "../user/_models/user.model";
+import {EditUserComponent} from "./edit-user/edit-user.component";
 
 
 @Component({
@@ -15,7 +16,7 @@ export class UsersComponent implements OnInit {
 
   users: User[] = []
   displayedColumns: string[] = ['position', 'name', 'weight', 'symbol', 'action'];
-  dataSource : MatTableDataSource<User> = new MatTableDataSource<User>();
+  dataSource = new MatTableDataSource<any>();
 
   constructor(private dialog: MatDialog, private userService: UserService) { }
 
@@ -28,7 +29,7 @@ export class UsersComponent implements OnInit {
       width: '600px',
     });
     dialogRef.afterClosed().subscribe(data => {
-
+    this.getAllUser();
     });
   }
 
@@ -47,6 +48,18 @@ export class UsersComponent implements OnInit {
   deleteUser(id : any) {
     this.userService.delete(id).subscribe(data => {
       this.getAllUser();
+
     })
+  }
+
+  openEditDialog(element : any) {
+    console.log(element);
+    const dialogRef = this.dialog.open(EditUserComponent, {
+      width: '600px',
+      data: element
+    });
+    dialogRef.afterClosed().subscribe(data => {
+      this.getAllUser();
+    });
   }
 }
