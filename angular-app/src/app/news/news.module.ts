@@ -6,6 +6,7 @@ import { NewsComponent } from './news.component';
 import { CreateNewsComponent } from './create-news/create-news.component';
 import { EditNewsComponent } from './edit-news/edit-news.component';
 import { DeleteNewsComponent } from './delete-news/delete-news.component';
+import {SharedModule} from "../shared/shared.module";
 
 
 @NgModule({
@@ -17,7 +18,8 @@ import { DeleteNewsComponent } from './delete-news/delete-news.component';
   ],
   imports: [
     CommonModule,
-    NewsRoutingModule
+    NewsRoutingModule,
+    SharedModule
   ]
 })
 export class NewsModule { }

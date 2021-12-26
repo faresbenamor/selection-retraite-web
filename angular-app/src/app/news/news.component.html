@@ -1,1 +1,63 @@
-<p>news works!</p>
+<nb-layout [withScroll]="false">
+  <nb-layout-header style="height: 60px!important;"  subheader fixed>
+
+  </nb-layout-header>
+
+  <nb-layout-column class="colored-column-basic" style="padding: 0!important;">
+
+
+    <div style="background: #002F5F; width: 100%; height: 30vh; "></div>
+
+    <mat-card style="width: 90%; height: 80vh; margin-top: -67px; margin-left: 5%">
+      <mat-card-header style="display: flex; justify-content: space-between">
+        <mat-card-title >
+          Residences
+        </mat-card-title>
+
+<!--        <mat-form-field appearance="standard" style="margin-top: -25px">-->
+<!--          <mat-label>Rechercher</mat-label>-->
+<!--          <input matInput placeholder="Recherche.." [(ngModel)]="searchValue" (keyup)="filter()">-->
+<!--          <mat-icon matSuffix>search</mat-icon>-->
+<!--        </mat-form-field>-->
+
+<!--        <mat-form-field style="width: 20%; margin-top: -15px">-->
+<!--          <mat-label>Filtrer par région</mat-label>-->
+<!--          <mat-select [(ngModel)]="residence.region" (selectionChange)="filterByRegion()">-->
+<!--            <mat-option *ngFor="let region of regions" [value]="region">-->
+<!--              {{region}}-->
+<!--            </mat-option>-->
+<!--          </mat-select>-->
+<!--        </mat-form-field>-->
+
+
+
+        <button mat-fab style="margin-top: -45px" color="warn" (click)="openAddDialog()"><mat-icon>add</mat-icon> </button>
+      </mat-card-header>
+
+      <mat-divider></mat-divider>
+
+      <mat-card-content style="display: flex; flex-wrap: wrap; overflow-y: auto; max-height: 70vh" class="style-1">
+        <div *ngIf="news.length == 0 && loaded" class="mx-auto my-auto"
+             style="height: 70vh; display: flex; flex-direction: column; justify-content: center">
+          <h3>Aucune résidence trouvée!</h3>
+        </div>
+        <div class="col-md-6 col-sm-12 col-lg-6 col-12 p-2" *ngFor="let ne of news" >
+
+          <mat-card class="example-card" style="z-index: 1!important; display: flex">
+            <img    [src]="ne.image" height="120">
+            <mat-card-header >
+              <mat-card-title> {{ ne.titre }} </mat-card-title>
+              <mat-card-subtitle> {{ ne.sousTitre }} </mat-card-subtitle>
+            </mat-card-header>
+
+
+          </mat-card>
+
+        </div>
+
+      </mat-card-content>
+    </mat-card>
+
+  </nb-layout-column>
+
+</nb-layout>
