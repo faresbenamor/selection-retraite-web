@@ -1,10 +1,13 @@
 package com.selectionretraite.api.controllers;
 
 import com.selectionretraite.api.entities.News;
+import com.selectionretraite.api.entities.Residence;
 import com.selectionretraite.api.services.INewsService;
+import com.selectionretraite.api.services.implementation.FileStorageService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import java.util.List;
 import java.util.Optional;
@@ -15,10 +18,12 @@ import java.util.Optional;
 public class NewsController {
 
     final INewsService newsService;
+    final FileStorageService fileStorageService;
 
     @Autowired
-    public NewsController(INewsService newsService) {
+    public NewsController(INewsService newsService, FileStorageService fileStorageService) {
         this.newsService = newsService;
+        this.fileStorageService = fileStorageService;
     }
     @GetMapping
     public ResponseEntity<List<News>> findAll(){
@@ -31,11 +36,26 @@ public class NewsController {
     }
 
     @PostMapping
-    public ResponseEntity<News> save(@RequestBody News news){
+    public ResponseEntity<News> save( News news, @RequestParam("residenceId") Long residenceId){
+
+        news.setResidence(new Residence());
+        news.getResidence().setId(residenceId);
+        if(news.getFile() != null){
+
+            String fileName = fileStorageService.storeFile(news.getFile());
+
+            String fileDownloadUri = ServletUriComponentsBuilder.fromCurrentContextPath()
+                    .path("/downloadFile/")
+                    .path(fileName)
+                    .toUriString();
+            news.setImage(fileDownloadUri);
+        }
 
 
         Optional<News> news1 = Optional.of(newsService.save(news));
-        return ResponseEntity.created(null).body(news1.get());
+        News news2 = news1.get();
+        news2.setFile(null);
+        return ResponseEntity.created(null).body(news2);
 
 
     }

@@ -22,7 +22,7 @@ const routes: Routes = [
   ]
 },
   {
-    path: 'main', component: MainLayoutComponent,
+    path: 'main/residence/:id', component: MainLayoutComponent,
     children: MainLayoutRoutingModule.routes
   },
   {
@@ -34,14 +34,16 @@ const routes: Routes = [
     component: UsersComponent
   },
   {
-    path: "residence",
+    path: 'residence',
     loadChildren: () => import('./residence/residence.module').then(m => m.ResidenceModule)
   }
 
   ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes, {
+    paramsInheritanceStrategy: 'always'
+  })],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }

@@ -1,5 +1,8 @@
 package com.selectionretraite.api.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import org.springframework.web.multipart.MultipartFile;
+
 import javax.persistence.*;
 
 @Entity
@@ -16,9 +19,19 @@ public class News {
     private String sousTitre;
 
     private String description;
+    @Transient
+    private MultipartFile file;
 
+    public MultipartFile getFile() {
+        return file;
+    }
+
+    public void setFile(MultipartFile file) {
+        this.file = file;
+    }
 
     @ManyToOne
+    @JsonIgnoreProperties("news")
     private Residence residence;
 
     public Long getId() {

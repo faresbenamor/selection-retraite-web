@@ -31,6 +31,7 @@ import {MatTableModule} from '@angular/material/table';
 import {MatProgressBarModule} from '@angular/material/progress-bar';
 import {MatSelectModule} from '@angular/material/select';
 import {SweetAlert2Module} from "@sweetalert2/ngx-sweetalert2";
+import {CKEditorModule} from "@ckeditor/ckeditor5-angular";
 
 
 
@@ -68,10 +69,12 @@ import {SweetAlert2Module} from "@sweetalert2/ngx-sweetalert2";
       MatProgressBarModule,
       MatSortModule,
       ReactiveFormsModule,
-      SweetAlert2Module
+      SweetAlert2Module,
+      CKEditorModule
 
     ],
     exports: [
+      CKEditorModule,
       NbLayoutModule,
       NbSidebarModule,
       NbThemeModule,
