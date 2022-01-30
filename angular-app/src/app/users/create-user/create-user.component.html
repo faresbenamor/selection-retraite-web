@@ -3,7 +3,7 @@
   <div mat-dialog-content>
     <mat-form-field style="width: 100%">
       <mat-label>E-mail</mat-label>
-      <input matInput [(ngModel)]="user.username"  required minlength="3" [ngClass]="{ 'is-invalid': Nom.invalid && Nom.touched }"
+      <input matInput [(ngModel)]="user.username" required minlength="3" [ngClass]="{ 'is-invalid': Nom.invalid && Nom.touched }"
              #Nom="ngModel">
 
       <div class="invalid-feedback" *ngIf="Nom.errors?.required">
@@ -48,6 +48,3 @@
 
   </div>
 </form>
-
-
-

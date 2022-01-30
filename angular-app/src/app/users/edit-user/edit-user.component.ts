@@ -3,7 +3,7 @@ import {IRole, Role, User} from "../../user/_models/user.model";
 import {MAT_DIALOG_DATA, MatDialogRef} from "@angular/material/dialog";
 import {ResidenceService} from "../../residence/_services/residence.service";
 import {UserService} from "../../user/_services/user.service";
-import {Residence} from "../../residence/_models/residence.model";
+import {IResidence, Residence} from "../../residence/_models/residence.model";
 
 @Component({
   selector: 'app-edit-user',
@@ -16,6 +16,7 @@ export class EditUserComponent implements OnInit {
   roles: IRole[] | undefined = [];
   residences: Residence[] = [];
   rolee: IRole = new Role();
+  residencee= new Residence();
 
   constructor(@Inject(MAT_DIALOG_DATA) public data: any, private residenceService: ResidenceService, private userService: UserService, private ref: MatDialogRef<EditUserComponent>) { }
 
@@ -23,14 +24,15 @@ export class EditUserComponent implements OnInit {
     this.user = this.data;
     this.user.password = '';
     this.rolee = this.data.roles[0];
+    if(!!this.data.residence)
+    this.residencee = this.data.residence;
     this.getAllRoles();
     this.getAllResidences();
   }
 
-
   getAllResidences() {
     this.residenceService.findAll().subscribe(data => {
-      this.residences = data.filter(r => r.user == null);
+      this.residences = data;
     })
   }
 
@@ -39,7 +41,10 @@ export class EditUserComponent implements OnInit {
       this.roles = data;
     })
   }
-  edit() {
 
+  editUser() {
+    this.userService.update(this.user).subscribe(data => {
+      this.ref.close();
+    })
   }
 }
