@@ -41,7 +41,9 @@ export class CreateUserComponent implements OnInit {
     this.user.roles.push(this.role);
 
     // @ts-ignore
-    this.userService.create(this.user).subscribe(this.ref.close());
+    this.userService.create(this.user).subscribe(data => {
+      this.ref.close();
+    });
   }
 
 }

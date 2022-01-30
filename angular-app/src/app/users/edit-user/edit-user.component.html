@@ -1,20 +1,20 @@
 <h3 mat-dialog-title>Modifier un utilisateur</h3>
-<form (ngSubmit)= "edit()" name="form" #f="ngForm">
+<form (ngSubmit)= "editUser()" name="form" #f="ngForm">
   <div mat-dialog-content>
     <mat-form-field style="width: 100%">
       <mat-label>E-mail</mat-label>
-      <input matInput [(ngModel)]="user.username" name="username" required minlength="3">
+      <input matInput [(ngModel)]="user.username" name="username" minlength="3">
     </mat-form-field>
 
     <mat-form-field style="width: 100%">
       <mat-label>Mot de passe</mat-label>
-      <input matInput [(ngModel)]="user.password" name="password" required minlength="3">
+      <input matInput [(ngModel)]="user.password" name="password" minlength="3">
 
     </mat-form-field>
 
     <mat-form-field style="width: 100%">
       <mat-label>Role</mat-label>
-      <mat-select [(ngModel)]="rolee.id" name="role" required>
+      <mat-select [(ngModel)]="rolee.id" name="role">
         <mat-option *ngFor="let role of roles" [value]="role?.id" >
           {{role.name}}
         </mat-option>
@@ -23,9 +23,9 @@
 
     <mat-form-field style="width: 100%">
       <mat-label>Résidence</mat-label>
-      <mat-select [(ngModel)]="user.residence" name="residence" required>
-        <mat-option *ngFor="let res of residences" [value]="res">
-          {{res?.nom}}
+      <mat-select [(ngModel)]="residencee.id" name="residence">
+        <mat-option *ngFor="let res of residences" [value]="res?.id">
+          {{res.nom}}
         </mat-option>
       </mat-select>
     </mat-form-field>
@@ -33,7 +33,7 @@
   </div>
 
   <div mat-dialog-actions align="end">
-    <button mat-raised-button color="warn">Ajouter</button>
+    <button mat-raised-button color="warn" style="color: white; background-color: #002F5F">Modifier</button>
 
   </div>
 </form>

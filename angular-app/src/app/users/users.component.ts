@@ -48,7 +48,6 @@ export class UsersComponent implements OnInit {
   deleteUser(id : any) {
     this.userService.delete(id).subscribe(data => {
       this.getAllUser();
-
     })
   }
 
