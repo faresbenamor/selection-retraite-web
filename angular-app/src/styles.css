@@ -1,5 +1,8 @@
 /* You can add global styles to this file, and also import other style files */
 
+.cdk-overlay-container {
+  z-index: 1 !important;
+}
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 .style-1::-webkit-scrollbar-track

@@ -1,1 +1,44 @@
-<p>create-news works!</p>
+<h3 mat-dialog-title>Ajouter une Residence</h3>
+<form  name="form" #f="ngForm">
+  <div mat-dialog-content>
+    <mat-form-field style="width: 100%">
+      <mat-label>Titre</mat-label>
+      <input matInput [(ngModel)]="news.titre"  name="titre" required minlength="3">
+
+
+    </mat-form-field>
+    <mat-form-field style="width: 100%">
+      <mat-label>Sous-titre</mat-label>
+      <input matInput [(ngModel)]="news.sousTitre" name="sous"  required minlength="3" >
+
+
+    </mat-form-field>
+    <mat-form-field style="width: 100%">
+      <mat-label>image url</mat-label>
+      <input matInput [(ngModel)]="news.image"  required minlength="3" name="image">
+
+    </mat-form-field>
+
+
+    <mat-label style="color: gray; padding: 20px 20px 20px 0">image: </mat-label>
+    <span style="padding: 15px">
+    <img height="100" style="cursor: pointer" matTooltip="importer image" src="{{filename}}" (click)="file.click()">
+  </span>
+    <input type="file" #file style="display: none"  accept="image/*" (change)="onFileChange($event.target)">
+
+  </div>
+  <mat-label style="color: gray; padding: 20px 20px 20px 0">description: </mat-label>
+  <ckeditor [editor]="Editor" [(ngModel)]="news.description"  data="<p>Hello, world!</p>"></ckeditor>
+
+  <div mat-dialog-actions align="end">
+    <button mat-raised-button color="warn" (click)="add()">Ajouter</button>
+
+  </div>
+</form>
+
+
+
+
+
+
+

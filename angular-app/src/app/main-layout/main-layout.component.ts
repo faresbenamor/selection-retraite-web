@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {NbMenuItem, NbSidebarService} from '@nebular/theme';
 import {ajaxGetJSON} from 'rxjs/internal-compatibility';
+import {ActivatedRoute} from '@angular/router';
 
 @Component({
   selector: 'app-main-layout',
@@ -11,7 +12,7 @@ export class MainLayoutComponent implements OnInit {
   items: NbMenuItem[] = [{
     title: 'Dashboard',
     icon: 'home-outline',
-    link: '/main/residence',
+    link: 'details',
     pathMatch: 'prefix',
   },
     {
@@ -23,7 +24,7 @@ export class MainLayoutComponent implements OnInit {
     {
       title: 'Nouvelles',
       icon: 'person-outline',
-      link: '/main/news',
+      link:  'news',
       pathMatch: 'prefix'
     },
     {
@@ -46,7 +47,7 @@ export class MainLayoutComponent implements OnInit {
     }
   ];
 
-  constructor(private sidebarService: NbSidebarService) {
+  constructor(private sidebarService: NbSidebarService, private route: ActivatedRoute) {
   }
 
 

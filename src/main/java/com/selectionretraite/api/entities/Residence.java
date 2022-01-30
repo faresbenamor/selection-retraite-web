@@ -39,6 +39,7 @@ public class Residence {
     private List<Activity> activities;
 
     @OneToMany(mappedBy = "residence")
+    @JsonIgnoreProperties("residence")
     private List<News> news;
 
     @OneToMany(mappedBy = "residence")
